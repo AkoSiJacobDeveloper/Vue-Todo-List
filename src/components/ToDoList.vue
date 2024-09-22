@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2 class="text-white m-2">Todo List</h2>
     <div v-for="todo in todos" :key="todo.id">
       <ToDoItem 
         :todo="todo" 

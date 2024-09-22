@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-      <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="todo-wrapper p-3 d-flex justify-content-center align-items-center flex-column">
-             <div class="wrapper w-100">
-                <ToDoHeader />
-                <ToDoInput @add-todo="addTodo" />
-              </div>
-              <div class="list-container w-100 border-light">
-                <ToDoList :todos="todos" @remove-todo="removeTodo" @edit-todo="editTodo" class="text-center" />
-              </div>
-          </div>
+    <div class="container d-flex justify-content-center align-items-center vh-100 gap-5">
+      <ToDoHeader />
+      <div class="todo-wrapper py-4 d-flex justify-content-center align-items-center flex-column">
+        <div class="wrapper w-100">
+          <ToDoInput @add-todo="addTodo" />
+        </div>
+        <div class="list-container w-100 border-light">
+          <ToDoList :todos="todos" @remove-todo="removeTodo" @edit-todo="editTodo" class="text-center" />
+        </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
     editTodo(updatedTodo) {
       const index = this.todos.findIndex(t => t.id === updatedTodo.id);
       if (index !== -1) {
-        this.todos.splice(index, 1, updatedTodo); // Replace the old todo with the updated one
+        this.todos.splice(index, 1, updatedTodo);
       }
     },
   },
@@ -56,34 +56,29 @@ export default {
 @import './assets/Styles/Styles.scss';
 
 #app {
-  background-image: url(/wave.svg);
-  background-size: cover;
+  background-image: url(public/slanted-gradient.svg);
   background-position: center;
-  height: 100vh;
+  background-size: cover;
 
   div {
     box-sizing: border-box;
 
     .todo-wrapper {
-      height: 80vh;
+      height: 90vh;
       width: 50vw;
-      border: 1px solid black;
-      padding: 20px; // Ensure there's space inside
+      padding: 20px;
       background: rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
+      border-radius: 10px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);   
-      border: 1px solid rgba(255, 255, 255, 1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(5px);  
 
       .wrapper {
         margin-bottom: 10px;
       }
 
       .list-container {
-        border: 1px solid black;
-        width: 100%;
-        min-height: 60vh; // Make sure the container has height
+        height: 90%;
       }
     }
   }
